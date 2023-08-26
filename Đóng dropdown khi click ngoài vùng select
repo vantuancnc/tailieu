@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Đóng dropdown khi click ở ngoài vùng</title>
+<style>
+.hidden {
+  display:none
+}
+ul {
+  background-color: blue;
+  
+}
+</style>
+</head>
+<body>
+<button class="btn">open</button>
+<ul class="list hidden">
+    <li class="item1">Item 1</li>
+    <li class="item2">Item 2</li>
+    <li class="item3">Item 3</li>
+</ul>
+<script>
+const list = document.querySelector('.list')
+const btn = document.querySelector('.btn')
+
+btn.addEventListener('click', (e)=> {
+  
+ list.classList.toggle('hidden')
+  e.stopPropagation()
+})
+
+document.addEventListener('click', (e)=> {
+  if(e.target.closest('.list')) return 
+  
+  list.classList.add('hidden')
+
+})
+</script>
+</body>
+</html>
