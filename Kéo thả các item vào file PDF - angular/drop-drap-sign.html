@@ -1,0 +1,47 @@
+<div id="pdf-viewer-copy">
+    <ng-container *ngFor="let item of listCopy; let i = index">
+      <div
+        class="page-sign-pdf"
+        id="page-{{ i }}"
+        (drop)="drop($event, item)"
+        (dragover)="allowDrop($event)"
+      >
+        <ng-container *ngFor="let items of item.listElement">
+          <div
+            class="span_item"
+            id="{{ items.id }}"
+            title=" x: {{ items.locationSign.x }} - y: {{ items.locationSign.y }}"
+            cdkDragBoundary=".page-sign-pdf"
+            [cdkDragFreeDragPosition]="items.locationView"
+            (cdkDragMoved)="dragMoved($event, items)"
+            (cdkDragEnded)="dragEnd($event, items)"
+            cdkDrag
+          >
+            <div class="relative content_elem" [class.show-ruler]="items.drap">
+              <p>Ký bởi: Văn Tuấn</p>
+              <p>Ngày Ký: 31/07/2023 10:26:00</p>
+              <i
+                class="fa fa-times"
+                (click)="deleteNode(item, items)"
+                tooltip="Xóa"
+              ></i>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  
+    <ul class="list-keo">
+      <button (click)="submit()">GỬI XUỐNG</button>
+      <li
+        *ngFor="let item of ['a', 'b', 'c']; let i = index"
+        draggable="true"
+        (dragstart)="drag($event)"
+      >
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+  
+  <div id="pdf-viewer"></div>
+  
