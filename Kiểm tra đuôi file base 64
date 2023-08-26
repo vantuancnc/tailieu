@@ -1,3 +1,9 @@
+/**
+ * Returns the data type based on the base64 string
+ * @param {String} base64String
+ * @param {String} fileName
+ * @returns {String}
+ */
 detectMimeType(base64String, fileName) {
   var ext = fileName.substring(fileName.lastIndexOf(".") + 1);
   if (ext === undefined || ext === null || ext === "") ext = "bin";
