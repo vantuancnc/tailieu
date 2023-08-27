@@ -1,0 +1,6 @@
+a{
+        background: linear-gradient(336deg, #4398F7 40.00%, #3BBFFF 50%, #22FCFF 80.00%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
